@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  background: darkmagenta;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.bar {
+  border: 1px solid;
+  height: 40px;
+  width: 100%;
+  border-radius: 20px;
+  margin: 10px auto;
+}
+
+.barValue {
+  width: 100%;
+  background: darkmagenta;
+  height: 100%;
+  border-radius: 20px;
+}
+
+p {
+  margin-top: 10px;
+  font-size: large;
+}
+.butons {
+  text-align: center;
+}
+button {
+  width: 180px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: darkmagenta;
+  color: white;
+  font-weight: bolder;
+  margin: 10px;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: darkorange;
+}
+#app button:disabled {
+  background: gray;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.alertDialog {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  z-index: 2;
+}
+.alert {
+    background: white;
+    padding: 16px 20px;
+    border-radius: 20px;
+    max-width: 1020px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;;
+}
+
+.alert h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.alert button {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}

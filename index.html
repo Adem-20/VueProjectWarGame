@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS || Bilgisayara Karşı Savaş Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body id="app">
+    <header>
+        <h1>Bilgisayara Karşı Savaş Oyunu</h1>
+    </header>
+
+    <div v-if="alertKart" class="alertDialog" @click.self="alertKart=false">
+        <div class="alert">
+            <h3>Bilgi!!</h3>
+            <p>Süper saldırı butonu 4 kez saldırı yapıldıktan sonra aktif olur.
+                Kullanıldıktan sonra da diğer 4 saldırıya kadar kapanır!</p>
+            <p>Can ekle butonu oyun boyunca sadece 2 kez kullanılabilir!</p>
+            <button @click="alertKart=false">Tamam</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Bilgisayar</h2>
+        <div class="bar" >
+            <div class="barValue" :style="bilgisayarBar"></div>
+            <p class="barText">{{Math.min(bilgisayar,100)+ '%'}}</p>        
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Sen</h2>
+        <div class="bar">
+            <div class="barValue" :style="kullaniciBar"></div>
+            <p class="barText">{{Math.min(kullanici,100)+ '%'}}</p>
+        </div>
+    </div>
+
+    <div class="butons">
+        <button @click="kullaniciAtak()" :disabled="winner">Saldır</button>
+        <button @click="superSaldiri()"  :disabled="btnHazir || winner">Süper Saldırı</button>
+        <button @click="canEkle()" :disabled="winner || canEkleTik >= 2">Can Ekle</button>
+    </div>
+
+    <div class="card" v-if='winner'>
+        <h2>Oyun Bitti</h2>
+        <h3  v-if="winner === 'bilgisayar'">Bigisayar Kazandı!</h3>
+        <h3  v-else-if="winner === 'kullanici'">Sen Kazandın!</h3>
+        <h3  v-else >Berabere!</h3>
+        <button @click ="yeniOyun()">Yeniden Oyna</button>
+    </div>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
